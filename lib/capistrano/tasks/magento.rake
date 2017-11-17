@@ -137,6 +137,14 @@ namespace :magento do
         end
       end
     end
+
+    task :dump_autoload do
+      on release_roles :all do
+        within release_path do
+        execute :composer, "dump-autoload", "-o"
+         end
+      end
+    end
   end
 
   namespace :deploy do
